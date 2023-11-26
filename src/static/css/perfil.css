@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(90deg, #ff0000 50%, #006c9e 50%);
+}
+
+.portfolio {
+    padding: 6%;
+    text-align: center;
+}
+
+.heading {
+    background: #fff;
+    padding: 1%;
+    text-align: left;
+    box-shadow: 0px 0px 4px 0px #545b62;
+}
+
+.heading img {
+    width: 10%;
+}
+
+.bio-info {
+    padding: 5%;
+    background: #fff;
+    box-shadow: 0px 0px 4px 0px #b0b3b7;
+}
+
+.name {
+    font-family: 'Charmonman', cursive;
+    font-weight: 600;
+}
+
+.bio-image {
+    text-align: center;
+}
+
+.bio-image img {
+    border-radius: 50%;
+}
+
+.bio-content {
+    text-align: left;
+}
+
+.bio-content p {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.b-0 {
+    bottom: 0;
+}
+
+.bg-shadow {
+    background: rgba(76, 76, 76, 0);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179, 171, 171, 0)), color-stop(49%, rgba(48, 48, 48, 0.37)), color-stop(100%, rgba(19, 19, 19, 0.8)));
+    background: linear-gradient(to bottom, rgba(179, 171, 171, 0) 0%, rgba(48, 48, 48, 0.71) 49%, rgba(19, 19, 19, 0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0);
+}
+
+.top-indicator {
+    right: 0;
+    top: 1rem;
+    bottom: inherit;
+    left: inherit;
+    margin-right: 1rem;
+}
+
+.overflow {
+    position: relative;
+    overflow: hidden;
+}
+
+.zoom img {
+    transition: all 0.2s linear;
+}
+
+.zoom:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}

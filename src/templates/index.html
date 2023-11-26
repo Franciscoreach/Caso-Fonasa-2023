@@ -1,0 +1,240 @@
+{% extends './base.html' %}
+
+{% block title %}Home Fonasa{% endblock %}
+
+{% block body %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+<nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand mt-2 mt-lg-0" href="{{ url_for('home')}}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" height="60" width="200" />
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Acceso a mi portal Fonasa
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{{ url_for('login')}}">Ingresar a mi Cuenta</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('nosotros')}}">Sobre Nosotros</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('ubicanos')}}">Ubicanos</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Container-->
+<div class="container">
+    <br>
+    <section>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='img/banner.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <br>
+    </section>
+</div>
+</div>
+</div>
+
+<!--Container-->
+<div class="container">
+    <div class="row">
+        <div class="col-12 pb-5">
+            <section class="row">
+                <div class="col-12 col-md-6 pb-0 pb-md-3 pt-2 pr-md-1">
+                    <div id="featured" class="carousel slide carousel" data-ride="carousel">
+
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card border-0 rounded-0 text-light overflow zoom">
+                                    <div class="position-relative">
+                                        <div class="ratio_left-cover-1 image-wrapper">
+                                            <a href="#">
+                                                <img class="img-fluid w-100"
+                                                    src="{{ url_for('static', filename='img/caja1.jpg') }}">
+                                            </a>
+                                        </div>
+                                        <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                            <a href="#">
+                                                <h2 class="h3 post-title text-white my-1">Clientes agilizan sus Trámites
+                                                </h2>
+                                            </a>
+                                            <div class="news-meta">
+                                                <span class="news-date">Nov 29, 2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Nueva Caja-->
+                <div class="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
+                    <div class="row">
+                        <div class="col-6 pb-1 pt-0 pr-1">
+                            <div class="card border-0 rounded-0 text-white overflow zoom">
+                                <div class="position-relative">
+                                    <div class="ratio_right-cover-2 image-wrapper">
+                                        <a href="#">
+                                            <img class="img-fluid"
+                                                src="{{ url_for('static', filename='img/caja2.jpg') }}"
+                                                alt="simple blog template bootstrap">
+                                        </a>
+                                    </div>
+                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Documentos</a>
+                                        <a href="#">
+                                            <h2 class="h5 text-white my-1">Firma tus Papeles con mayor facilidad</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Nueva Caja-->
+                        <div class="col-6 pb-1 pl-1 pt-0">
+                            <div class="card border-0 rounded-0 text-white overflow zoom">
+                                <div class="position-relative">
+                                    <div class="ratio_right-cover-2 image-wrapper">
+                                        <a href="#">
+                                            <img class="img-fluid"
+                                                src="{{ url_for('static', filename='img/caja3.jpg') }}">
+                                        </a>
+                                    </div>
+                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Familiar</a>
+                                        <a href="#">
+                                            <h2 class="h5 text-white my-1">Descuento en planes con tu Familia</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Nueva Caja-->
+                        <div class="col-6 pb-1 pr-1 pt-1">
+                            <div class="card border-0 rounded-0 text-white overflow zoom">
+                                <div class="position-relative">
+                                    <div class="ratio_right-cover-2 image-wrapper">
+                                        <a href="#">
+                                            <img class="img-fluid"
+                                                src="{{ url_for('static', filename='img/caja5.jpg') }}">
+                                        </a>
+                                    </div>
+                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Salud</a>
+                                        <a href="#">
+                                            <h2 class="h5 text-white my-1">Comidas que pueden ayudar a la Salud</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Nueva Caja-->
+                        <div class="col-6 pb-1 pl-1 pt-1">
+                            <div class="card border-0 rounded-0 text-white overflow zoom">
+                                <div class="position-relative">
+                                    <div class="ratio_right-cover-2 image-wrapper">
+                                        <a href="">
+                                            <img class="img-fluid"
+                                                src="{{ url_for('static', filename='img/caja4.jpg') }}">
+                                        </a>
+                                    </div>
+                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                        <a class="p-1 badge badge-primary rounded-0" href="">Medicina</a>
+                                        <a href="">
+                                            <h2 class="h5 text-white my-1">La mejor atención de todo el País</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Nueva Caja-->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+        <br>
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Transformación Digital de Fonasa
+                    </h6>
+                    <p>
+                        Tenemos el agrado de informar a nuestros clientes las nuevas actualizaciones que
+                        se presentan en nuestros sitios para brindar un mejor servicio a nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Redes Sociales
+                    </h6>
+                    <p>
+                        <a href="https://web.facebook.com/FonasaChile/?_rdc=1&_rdr" class="text-reset"><i
+                                class="fa fa-facebook" style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/fonasa?lang=en" class="text-reset"><i class="fa fa-twitter"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.instagram.com/fonasachile/" class="text-reset"><i class="fa fa-instagram"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.youtube.com/channel/UCEb6BZnaMmGaDjoEGElnDMg" class="text-reset"><i
+                                class="fa fa-youtube" style="font-size:25px"></i></a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                    <p>
+                        contacto@fonasa.com
+                    </p>
+                    <p><i class="fa fa-phone" style="font-size:25px;margin-right:10px ;"></i>6000 061 011</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(211, 255, 182, 0.05);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold">Gobierno de Chile</a>
+    </div>
+</footer>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,186 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
+
+
+<nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand mt-2 mt-lg-0" href="{{ url_for('home')}}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" height="60" width="200" />
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Opciones de Mi Fonasa
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{{ url_for('perfil')}}">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('home')}}">Salir de mi cuenta</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Container-->
+<div class="container">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <div class="container portfolio">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Generar consulta para el paciente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-signin" action="ingreso-consultaADD" method="POST">
+                            <input type="hidden" name="csrf_token" value="">
+                            <div class="form-floating mt-2">
+                                <input type="number" class="form-control" name="noHistoriaClinica"
+                                    placeholder="noHistoriaClinica">
+                                <label for="noHistoriaClinica">Número de historia clinica</label>
+                            </div>
+                            <div class="form-floating  mt-2">
+                                <input type="text" class="form-control" id="nombrePaciente" name="nombrePaciente"
+                                    placeholder="nombrePaciente">
+                                <label for="nombrePaciente">Nombres y Apellidos del Paciente</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <input type="number" class="form-control" name="edad" placeholder="edad">
+                                <label for="edad">Edad</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <input type="number" class="form-control" name="prioridad" placeholder="prioridad">
+                                <label for="prioridad">Prioridad del Paciente</label>
+                            </div>
+                            <div class="form-floating mt-2">
+                                <input type="number" class="form-control" name="riesgo" placeholder="riesgo"
+                                    step="0.01">
+                                <label for="riesgo">Riesgo del Paciente (0,0)</label>
+                            </div>
+                            <div class="form-floating  mt-2">
+                                <input type="text" class="form-control" id="nombreEsp" name="nombreEsp"
+                                    placeholder="nombreEsp">
+                                <label for="nombreEsp">Nombre del Especialista</label>
+                            </div>
+                            <br>
+                            <button class="w-100 btn btn-lg btn-success" type="submit">Generar Consulta</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bio-info">
+            <div class="row">
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@getbootstrap">Ingreso de paciente a una Consulta</button>
+                <div class="container">
+                    <br>
+                    <table class="table table-striped custab">
+                        <thead>
+                            <tr>
+                                <th>N° Historia Clinica</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Edad del Paciente</th>
+                                <th>Prioridad del Paciente</th>
+                                <th>Riesgo del Paciente</th>
+                            </tr>
+                        </thead>
+                        {% for d in dataP %}
+                        <tr>
+                            <td>{{ d.noHistoriaClinica }}</td>
+                            <td>{{ d.nombre }}</td>
+                            <td>{{ d.edad }}</td>
+                            <td>{{ d.prioridad }}</td>
+                            <td>{{ d.riesgo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+        <br>
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Transformación Digital de Fonasa
+                    </h6>
+                    <p>
+                        Tenemos el agrado de informar a nuestros clientes las nuevas actualizaciones que
+                        se presentan en nuestros sitios para brindar un mejor servicio a nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Redes Sociales
+                    </h6>
+                    <p>
+                        <a href="https://web.facebook.com/FonasaChile/?_rdc=1&_rdr" class="text-reset"><i
+                                class="fa fa-facebook" style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/fonasa?lang=en" class="text-reset"><i class="fa fa-twitter"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.instagram.com/fonasachile/" class="text-reset"><i class="fa fa-instagram"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.youtube.com/channel/UCEb6BZnaMmGaDjoEGElnDMg" class="text-reset"><i
+                                class="fa fa-youtube" style="font-size:25px"></i></a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                    <p>
+                        contacto@fonasa.com
+                    </p>
+                    <p><i class="fa fa-phone" style="font-size:25px;margin-right:10px ;"></i>6000 061 011</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(211, 255, 182, 0.05);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold">Gobierno de Chile</a>
+    </div>
+</footer>
+</div>
+</div>
+</div>
+
+{% endblock %}

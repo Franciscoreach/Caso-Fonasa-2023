@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<form class="form-signin" action="acceso-login" method="POST">
+    <a href="{{ url_for('home')}}"><img  class="mb-4" src="{{ url_for('static', filename='img/logo.png') }}" alt="" width="300" height="120"></a>
+    {% if mensaje %}
+    <div class="alert alert-danger" role="alert">
+        {{ mensaje }}
+    </div>
+    <br>
+    {% endif  %}
+    <input type="hidden" name="csrf_token" value="">
+    <div class="form-floating">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+        <label for="username">Usuario</label>
+    </div>
+    <div class="form-floating mt-2">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <label for="password">Contraseña</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+</form>
+{% endblock %}

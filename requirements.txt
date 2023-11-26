@@ -1,0 +1,8 @@
+flask
+Flask-MySQLdb
+MySQL
+mysqlclient
+flask-login
+flask-WTF
+Flask-MySQL-Connector
+watchdog

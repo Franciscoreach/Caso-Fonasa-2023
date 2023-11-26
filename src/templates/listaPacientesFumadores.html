@@ -1,0 +1,130 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
+
+
+<nav data-mdb-navbar-init class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand mt-2 mt-lg-0" href="{{ url_for('home')}}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" height="60" width="200" />
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Opciones de Mi Fonasa
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{{ url_for('perfil')}}">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('home')}}">Salir de mi cuenta</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Container-->
+<div class="container">
+    <div class="container portfolio">
+        <div class="bio-info">
+            <div class="row">
+                <div class="container">
+                    <br>
+                    <table class="table table-striped custab">
+                        <thead>
+                            <tr>
+                                <th>N° Historia Clinica</th>
+                                <th>Nombre Pacientes</th>
+                                <th>Edad del Paciente</th>
+                                <th>Prioridad del Paciente</th>
+                                <th>Riesgo del Paciente</th>
+                            </tr>
+                        </thead>
+                        {% for d in dataP %}
+                        <tr>
+                            <td>{{ d.noHistoriaClinica }}</td>
+                            <td>{{ d.nombre }}</td>
+                            <td>{{ d.edad }}</td>
+                            <td>{{ d.prioridad }}</td>
+                            <td>{{ d.riesgo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<br><br><br><br><br>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section>
+        <br>
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Transformación Digital de Fonasa
+                    </h6>
+                    <p>
+                        Tenemos el agrado de informar a nuestros clientes las nuevas actualizaciones que
+                        se presentan en nuestros sitios para brindar un mejor servicio a nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Redes Sociales
+                    </h6>
+                    <p>
+                        <a href="https://web.facebook.com/FonasaChile/?_rdc=1&_rdr" class="text-reset"><i
+                                class="fa fa-facebook" style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/fonasa?lang=en" class="text-reset"><i class="fa fa-twitter"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.instagram.com/fonasachile/" class="text-reset"><i class="fa fa-instagram"
+                                style="font-size:25px"></i></a>
+                    </p>
+                    <p>
+                        <a href="https://www.youtube.com/channel/UCEb6BZnaMmGaDjoEGElnDMg" class="text-reset"><i
+                                class="fa fa-youtube" style="font-size:25px"></i></a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                    <p>
+                        contacto@fonasa.com
+                    </p>
+                    <p><i class="fa fa-phone" style="font-size:25px;margin-right:10px ;"></i>6000 061 011</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(211, 255, 182, 0.05);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold">Gobierno de Chile</a>
+    </div>
+</footer>
+</div>
+</div>
+</div>
+
+{% endblock %}
